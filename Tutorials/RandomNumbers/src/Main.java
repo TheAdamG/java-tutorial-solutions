@@ -7,7 +7,6 @@ import java.util.Set;
 public class Main {
 
   public static void main(String[] args) {
-    args = new String[]{"4"};
     Set<Integer> numberSet = new HashSet<>();
     List<Integer> numberList = new ArrayList<>();
     int numIn = Integer.parseInt(args[0]);
