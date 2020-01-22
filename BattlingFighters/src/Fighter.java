@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Fighter {
 
   private String name;
@@ -13,15 +15,39 @@ public class Fighter {
   }
 
   public void takeDamage(int damage) {
-    stamina -= damage;
+    stamina = Math.max(stamina - damage, 0);
   }
 
   public int calculateDamage() {
     return 2;
   }
 
+  public int calculateAttackScore() {
+    Random generator = new Random();
+    return skill + generator.nextInt(6) + generator.nextInt(6) + 2;
+  }
+
   public boolean isDead() {
     return stamina == 0;
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public int getSkill() {
+    return skill;
+  }
+
+  public int getStamina() {
+    return stamina;
+  }
+
+  public String toString() {
+    return (name + " - " + type + " - " + "skill: " + skill + "; stamina: " + stamina);
+  }
 }
