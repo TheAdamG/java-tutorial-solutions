@@ -25,9 +25,5 @@ public class GameEngine {
     System.out.println(first);
     System.out.println(second);
     System.out.println("------------------------------");
-
-
-
   }
-
 }
