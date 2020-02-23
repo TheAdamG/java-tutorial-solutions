@@ -19,7 +19,7 @@ public class GameEngine {
       } else {
         System.out.println(first.getName() + " draws with " + second.getName());
         System.out.println("------------------------------");
-        return;
+        continue;
       }
 
       System.out.println(winnerName + " hits " + loserName + ", stats are:");
