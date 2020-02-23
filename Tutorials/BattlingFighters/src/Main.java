@@ -9,8 +9,8 @@ public class Main {
     System.out.println(first);
     System.out.println(second);
 
-    while (first.getStamina() > 0 && second.getStamina() > 0) {
+
       GameEngine.simulateBattle(first, second);
-    }
+
   }
 }

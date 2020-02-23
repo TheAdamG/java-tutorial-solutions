@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class Fighter {
 
+  private final int skill;
   private String name;
   private String type;
-  private final int skill;
   private int stamina;
 
   public Fighter(String name, String type, int skill, int stamina) {
@@ -28,24 +28,13 @@ public class Fighter {
   }
 
   public boolean isDead() {
-    return stamina == 0;
+    return stamina <= 0;
   }
 
   public String getName() {
     return name;
   }
 
-  public String getType() {
-    return type;
-  }
-
-  public int getSkill() {
-    return skill;
-  }
-
-  public int getStamina() {
-    return stamina;
-  }
 
   public String toString() {
     return (name + " - " + type + " - " + "skill: " + skill + "; stamina: " + stamina);
