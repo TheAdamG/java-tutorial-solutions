@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class StringStackList implements StringStack {
+public class StringStackList extends AbstractStringStack {
 
   private List<String> stack;
   private int stackPointer;
@@ -31,5 +30,25 @@ public class StringStackList implements StringStack {
   public boolean isEmpty() {
     return stack.isEmpty();
   }
+
+
+  @Override
+  public StringStackIterator iterator() {
+    return new StringStackIterator() {
+
+      int iteratorPointer = 0;
+
+      @Override
+      public boolean hasNext() {
+        return  iteratorPointer != stackPointer;
+      }
+
+      @Override
+      public String next() {
+        return stack.get(iteratorPointer++);
+      }
+    };
+  }
+
 
 }

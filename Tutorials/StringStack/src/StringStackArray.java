@@ -1,4 +1,6 @@
-public class StringStackArray implements StringStack {
+import java.util.Iterator;
+
+public class StringStackArray extends AbstractStringStack {
 
   private String[] stack;
   private int stackPointer;
@@ -30,9 +32,38 @@ public class StringStackArray implements StringStack {
     return stackPointer == 0;
   }
 
-  public boolean isFull() {
+  @Override
+  public StringStackIterator iterator() {
+    return new StringStackIterator() {
+
+      int iteratorPointer = 0;
+
+      @Override
+      public boolean hasNext() {
+        return iteratorPointer != stackPointer;
+      }
+
+      @Override
+      public String next() {
+        return stack[iteratorPointer++];
+      }
+    };
+  }
+
+  private boolean isFull() {
     return stackPointer == 100;
   }
+
+  @Override
+  public String toString() {
+    StringStackIterator iterator = iterator();
+    StringBuilder stackString = new StringBuilder();
+    while (iterator.hasNext()){
+      stackString.append(iterator.next());
+    }
+    return stackString.toString();
+  }
+
 
 
 }

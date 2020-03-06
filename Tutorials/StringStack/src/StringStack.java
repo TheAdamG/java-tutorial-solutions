@@ -5,4 +5,6 @@ public interface StringStack {
   public String pop();
 
   public boolean isEmpty();
+
+  StringStackIterator iterator();
 }

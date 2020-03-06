@@ -9,13 +9,6 @@ public class Main {
     StringStack dst = new StringStackArray();
     dst.push("a1");
 
-    Demo.transferStacks(dst, src);
-
-    System.out.println(src.isEmpty());
-
-    while (!dst.isEmpty()) {
-      System.out.println(dst.pop());
-    }
-
+    System.out.println(src);
   }
 }
