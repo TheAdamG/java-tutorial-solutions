@@ -39,12 +39,50 @@ public class Example {
         .collect(Collectors.toList());
   }
 
-  public static void main(String[] args) {
-    List<String> test = new ArrayList<>();
-    test.add("1aaa");
-    test.add("cccc");
-    test.add("4bbb");
+  public static List<Integer> concatenate(List<List<Integer>> lists) {
+    return lists.stream().reduce(new ArrayList<>(), Example::concatTwoLists);
+  }
 
-    System.out.println(sqrtsOfFirstDigitsMonolithic(test));
+  public static <E> List<E> concatTwoLists(List<E> x, List<E> y) {
+    x.addAll(y);
+    return x;
+  }
+
+  public static int findMin(List<Integer> numbers) {
+    return numbers.stream().reduce(Integer.MAX_VALUE, Math::min);
+  }
+
+  public static int findMax(List<Integer> numbers) {
+    return numbers.stream().reduce(Integer.MIN_VALUE, Math::max);
+  }
+
+  public static int findMinOrZero(List<Integer> numbers) {
+    return numbers.stream().reduce(Math::min).orElse(0);
+  }
+
+  static int findMaxOrZero(List<Integer> numbers) {
+    return numbers.stream().reduce(Math::max).orElse(0);
+  }
+
+  static int findMinOfMaxes(List<List<Integer>> listOfLists) {
+    return findMin(listOfLists.stream().map(Example::findMax).collect(Collectors.toList()));
+  }
+
+  public static void main(String[] args) {
+    List<Integer> test = new ArrayList<>();
+    test.add(1);
+    test.add(2);
+    test.add(3);
+
+    List<Integer> test1 = new ArrayList<>();
+    test1.add(4);
+    test1.add(5);
+    test1.add(6);
+
+    List<List<Integer>> listOfLists = new ArrayList<>();
+    listOfLists.add(test);
+    listOfLists.add(test1);
+
+    System.out.println(findMinOrZero(new ArrayList<>()));
   }
 }
