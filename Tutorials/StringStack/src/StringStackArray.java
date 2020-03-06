@@ -54,15 +54,6 @@ public class StringStackArray extends AbstractStringStack {
     return stackPointer == 100;
   }
 
-  @Override
-  public String toString() {
-    StringStackIterator iterator = iterator();
-    StringBuilder stackString = new StringBuilder();
-    while (iterator.hasNext()){
-      stackString.append(iterator.next());
-    }
-    return stackString.toString();
-  }
 
 
 
