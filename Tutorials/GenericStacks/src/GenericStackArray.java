@@ -12,7 +12,7 @@ public class GenericStackArray<E> extends AbstractGenericStack<E> {
   @Override
   public void push(E s) {
     if (isFull()) {
-      return;
+      throw new UnsupportedPushException();
     }
     stack[stackPointer++] = s;
   }
@@ -20,7 +20,7 @@ public class GenericStackArray<E> extends AbstractGenericStack<E> {
   @Override
   public E pop() {
     if (isEmpty()) {
-      return null;
+      throw new UnsupportedPopException();
     }
     return stack[--stackPointer];
   }

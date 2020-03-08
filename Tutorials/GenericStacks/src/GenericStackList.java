@@ -20,10 +20,10 @@ public class GenericStackList<E> extends AbstractGenericStack<E> {
 
   @Override
   public E pop() {
-    if (!isEmpty()) {
-      return stack.remove(--stackPointer);
+    if (isEmpty()) {
+     throw new UnsupportedPopException();
     }
-    return null;
+    return stack.remove(--stackPointer);
   }
 
   @Override
